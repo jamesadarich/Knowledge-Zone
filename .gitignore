@@ -1,0 +1,9 @@
+# Ignore css folders
+css/
+.sass-cache/
+
+# npm stuff
+node_modules/
+
+# js build
+build/
