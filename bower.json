@@ -1,0 +1,19 @@
+{
+  "name": "Knowledge-Zone",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jamesrichford/Knowledge-Zone",
+  "authors": [
+    "jamesrichford <jamesrichford@googlemail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-icons": "~1.0.1"
+  }
+}
