@@ -10,3 +10,12 @@ bower_components/
 
 # js build
 build/
+
+# tsd stuff
+typings/
+
+# docs compiled stuff
+docs/js
+
+# playground compiled stuff
+playground/typescript/js
