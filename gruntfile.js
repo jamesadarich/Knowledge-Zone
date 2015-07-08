@@ -16,14 +16,14 @@ module.exports = function(grunt) {
 			options: {
 				sourceMap: true,
 				outputStyle: 'compressed'
-			}
+			},
+  		dist: {
+  			files: {
+  				'css/global.css': 'sass/global.scss',
+          'css/article.css': 'sass/article.scss'
+  			}
+  		}
     },
-		dist: {
-			files: {
-				'css/global.css': 'sass/global.scss',
-        'css/article.css': 'sass/article.scss'
-			}
-		},
     typescript: {
       base: {
         src: ['playground/typescript/src/**/*.ts'],

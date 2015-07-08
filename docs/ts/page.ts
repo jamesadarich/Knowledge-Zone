@@ -23,5 +23,7 @@ import {AppShell} from './app';
     test () {
       console.log(this);
       console.log(this.appShell);
+
+
     }
   }
