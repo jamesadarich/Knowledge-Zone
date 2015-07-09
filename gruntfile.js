@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
@@ -20,7 +21,8 @@ module.exports = function(grunt) {
   		dist: {
   			files: {
   				'css/global.css': 'sass/global.scss',
-          'css/article.css': 'sass/article.scss'
+          'css/article.css': 'sass/article.scss',
+          'css/backbone.css': 'sass/backbone.scss'
   			}
   		}
     },
@@ -74,7 +76,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('deploy', ['sass']);
+  grunt.registerTask('deploy', ['sass:dist']);
   grunt.registerTask('compile-ts', ['typescript']);
   grunt.registerTask('dev', ['watch:typescript']);
   grunt.registerTask('dev-docs', ['watch:typescript']);
