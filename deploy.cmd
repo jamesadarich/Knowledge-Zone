@@ -111,7 +111,7 @@ $NPM_CMD install bower
 
 :: 5. Install and Run Grunt
 $NPM_CMD install grunt-cli
-call :ExecuteCmd ./node_modules/.bin/grunt --no-color deploy
+call :ExecuteCmd ./node_modules/.bin/grunt --verbose --no-color deploy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
