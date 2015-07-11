@@ -105,6 +105,8 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
+echo $NPM_CMD
+
 :: 4. Install Bower
 $NPM_CMD install bower
 ./node_modules/.bin/bower install
