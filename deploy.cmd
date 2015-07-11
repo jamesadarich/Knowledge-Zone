@@ -106,16 +106,16 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   popd
 )
 
-echo ############### bower install ###############
-:: 4. Install Bower
-npm install bower
-./node_modules/.bin/bower install
-
 echo ############## run grunt tasks ##############
 :: 5. Install and Run Grunt
 npm install grunt-cli
 echo grunt deploy
 ./node_modules/.bin/grunt --no-color deploy
+
+echo ############### bower install ###############
+:: 4. Install Bower
+npm install bower
+./node_modules/.bin/bower install
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
