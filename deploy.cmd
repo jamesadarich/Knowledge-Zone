@@ -1,4 +1,4 @@
-@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo on
+@if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
 :: ----------------------
 :: KUDU Deployment Script
@@ -111,7 +111,7 @@ npm install bower
 
 :: 5. Install and Run Grunt
 npm install grunt-cli
-call :ExecuteCmd ./node_modules/.bin/grunt --verbose --no-color deploy
+./node_modules/.bin/grunt --verbose --no-color deploy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
