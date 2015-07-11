@@ -13,11 +13,13 @@ module.exports = function(grunt) {
         dest: 'build/<%= pkg.name %>.min.js'
       }
     },
+    //grunt-sass task
     sass: {
 			options: {
 				sourceMap: true,
 				outputStyle: 'compressed'
 			},
+      //distribution task sass compilation
   		dist: {
   			files: {
   				'css/global.css': 'sass/global.scss',
