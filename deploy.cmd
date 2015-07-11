@@ -101,18 +101,18 @@ call :SelectNodeVersion
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd !NPM_CMD! install rimraf
-  call rimraf ./node_modules
+  call :ExecuteCmd rimraf ./node_modules
   call :ExecuteCmd !NPM_CMD! install --production
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
 
 :: 4. Install Bower
-$NPM_CMD install bower
+call :ExecuteCmd $NPM_CMD install bower
 ./node_modules/.bin/bower install
 
 :: 5. Install and Run Grunt
-$NPM_CMD install grunt-cli
+call :ExecuteCmd $NPM_CMD install grunt-cli
 ./node_modules/.bin/grunt --no-color deploy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
