@@ -109,8 +109,8 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 :: 4. Install Bower
 
 :: 5. Install and Run Grunt
-$NPM_CMD install grunt-cli
-./node_modules/.bin/grunt --no-color deploy
+npm install grunt-cli
+grunt --no-color deploy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
