@@ -96,8 +96,8 @@ call :SelectNodeVersion
 echo ### rimraf clean ###
 :: 3. Clean bower_components and node_modules
 npm install rimraf
-./node_modules/.bin/rimraf ./bower_components
-./node_modules/.bin/rimraf ./node_modules
+rimraf ./bower_components
+rimraf ./node_modules
 
 echo ### npm install ###
 :: 3. Install npm packages
