@@ -101,6 +101,7 @@ call :SelectNodeVersion
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
   call :ExecuteCmd npm install --production
+  call :ExecuteCmd grunt --no-color deploy
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
