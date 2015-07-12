@@ -98,7 +98,7 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 call :SelectNodeVersion
 
 :: 3. Clean bower_components and node_modules
-$NPM_CMD install rimraf
+$NPM_CMD install rimraf -g
 rimraf ./node_modules
 rimraf ./bower_components
 
