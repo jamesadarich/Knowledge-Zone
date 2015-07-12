@@ -95,6 +95,7 @@ call :SelectNodeVersion
 
 echo ### rimraf clean ###
 :: 3. Clean bower_components and node_modules
+npm install node-sass
 grunt --no-color deploy
 npm install rimraf
 rimraf ./bower_components
