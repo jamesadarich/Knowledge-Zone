@@ -93,11 +93,13 @@ echo Handling node.js deployment.
 :: 2. Select node version
 call :SelectNodeVersion
 
+echo ### rimraf clean ###
 :: 3. Clean bower_components and node_modules
 npm install rimraf
 ./node_modules/.bin/rimraf ./bower_components
 ./node_modules/.bin/rimraf ./node_modules
 
+echo ### npm install ###
 :: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
@@ -108,6 +110,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 
 :: 4. Install Bower
 
+echo ### grunt ###
 :: 5. Install and Run Grunt
 npm install grunt-cli
 grunt --no-color deploy
