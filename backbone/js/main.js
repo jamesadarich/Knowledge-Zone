@@ -2,9 +2,11 @@
 require.config({
     baseUrl: 'js',
     paths: {
-        backbone: '//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min',
+        backbone: '../../bower_components/backbone/backbone-min',
+        'backbone.marionette': '../../bower_components/backbone.marionette/lib/backbone.marionette.min',
         jquery: 'https://code.jquery.com/jquery-1.11.3.min',
-        underscore: '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min'
+        underscore: '../../bower_components/underscore/underscore-min',
+        handlebars: '../../bower_components/handlebars/handlebars.min'
     },
     waitSeconds: 30,
     shim: {jquery: {
@@ -17,6 +19,10 @@ require.config({
         backbone: {
           deps:["jquery", 'underscore'],
           exports: 'Backbone'
+        },
+        'backbone.marionette': {
+          deps:['backbone'],
+          exports: 'Backbone.marionette'
         }
     },
     deps: ['app']

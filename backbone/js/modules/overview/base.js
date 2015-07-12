@@ -1,11 +1,8 @@
-define(['backbone'],
-  function(Backbone){
-    
-    var OverviewView = Backbone.View.extend({
-    	render: function() {
-        this.el.innerText = 'overview';
-    		//this.$el.html("<h1>This is the home page</hove1><a href='#users'>Go to users</a>");
-    	}
+define(['backbone.marionette', 'templates/pages'],
+  function(Marionette, templates){
+
+    var OverviewView = Marionette.ItemView.extend({
+        template: templates['backbone/templates/pages/overview.hbs']
     });
 
     return OverviewView;

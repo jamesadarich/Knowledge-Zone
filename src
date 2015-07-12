@@ -1,0 +1,27 @@
+define(['handlebars'], function(Handlebars) {
+
+this["JST"] = this["JST"] || {};
+
+this["JST"]["backbone/templates/core/backbone-function.hbs"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return " "
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + " ";
+},"3":function(depth0,helpers,partials,data) {
+    return " marionette ";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<h2>"
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + " ("
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.arguments : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ")</h2>\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isMarionetteFunction : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n<p>"
+    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
+    + "</p>\n";
+},"useData":true});
+
+return this["JST"];
+
+});

@@ -24,15 +24,48 @@ module.exports = function(grunt) {
           'css/backbone.css': 'sass/backbone.scss'
 				}
 			}
-		}
+    },
+    copy: {
+      deploy: {
+        files: [
+          { expand: true,
+            cwd: 'bower_components/flexboxgrid/dist',
+            src: ['flexboxgrid.min.css'],
+            dest: 'css/'},
+        ]
+      }
+		},
+    handlebars: {
+      'backbone-core': {
+        options: {
+          amd: true
+        },
+        files: {
+          'backbone/js/templates/core.js': ['backbone/templates/core/*.hbs'],
+        }
+      },
+      'backbone-pages': {
+        options: {
+          amd: true
+        },
+        files: {
+          'backbone/js/templates/pages.js': ['backbone/templates/pages/*.hbs'],
+        }
+      }
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-handlebars');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-sass');
 
   // Default task(s).
   grunt.registerTask('default', ['uglify']);
-  grunt.registerTask('deploy', ['sass']);
+  grunt.registerTask('deploy', ['sass:dist',
+                                'copy:deploy',
+                                'handlebars:backbone-core',
+                                'handlebars:backbone-pages']);
 
 };
