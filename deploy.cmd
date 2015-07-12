@@ -89,19 +89,14 @@ goto :EOF
 echo Handling node.js deployment.
 
 :: 1. KuduSync
+IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
+  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
+  IF !ERRORLEVEL! NEQ 0 goto error
+)
 
 :: 2. Select node version
 call :SelectNodeVersion
 
-echo ### rimraf clean ###
-:: 3. Clean bower_components and node_modules
-npm install node-sass
-grunt --no-color deploy
-npm install rimraf
-rimraf ./bower_components
-rimraf ./node_modules
-
-echo ### npm install ###
 :: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
@@ -111,11 +106,12 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Install Bower
+$NPM_CMD install bower
+./node_modules/.bin/bower install
 
-echo ### grunt ###
 :: 5. Install and Run Grunt
-npm install grunt-cli
-grunt --no-color deploy
+$NPM_CMD install grunt-cli
+./node_modules/.bin/grunt --no-color deploy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
