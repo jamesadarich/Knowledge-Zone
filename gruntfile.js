@@ -20,7 +20,8 @@ module.exports = function(grunt) {
 			dist: {
 				files: {
 					'css/global.css': 'sass/global.scss',
-          'css/article.css': 'sass/article.scss'
+          'css/article.css': 'sass/article.scss',
+          'css/backbone.css': 'sass/backbone.scss'
 				}
 			}
 		}

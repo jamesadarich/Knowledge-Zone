@@ -107,12 +107,12 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Install Bower
-$NPM_CMD install bower
-call :ExecuteCmd bower install
+:: $NPM_CMD install bower
+:: call :ExecuteCmd bower install
 
 :: 5. Install and Run Grunt
-$NPM_CMD install grunt-cli
-call :ExecuteCmd grunt --no-color deploy
+:: $NPM_CMD install grunt-cli
+:: call :ExecuteCmd grunt --no-color deploy
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
