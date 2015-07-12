@@ -97,6 +97,11 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
 :: 2. Select node version
 call :SelectNodeVersion
 
+:: 3. Clean bower_components and node_modules
+$NPM_CMD install rimraf
+rimraf ./node_modules
+rimraf ./bower_components
+
 :: 3. Install npm packages
 IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
   pushd "%DEPLOYMENT_TARGET%"
