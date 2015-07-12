@@ -94,7 +94,7 @@ echo Handling node.js deployment.
 call :SelectNodeVersion
 
 :: 3. Clean bower_components and node_modules
-$NPM_CMD install rimraf
+npm install rimraf
 ./node_modules/.bin/rimraf ./bower_components
 ./node_modules/.bin/rimraf ./node_modules
 
@@ -107,8 +107,6 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 )
 
 :: 4. Install Bower
-$NPM_CMD install bower
-./node_modules/.bin/bower install
 
 :: 5. Install and Run Grunt
 $NPM_CMD install grunt-cli
