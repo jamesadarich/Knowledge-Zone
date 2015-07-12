@@ -108,6 +108,7 @@ IF EXIST "%DEPLOYMENT_TARGET%\package.json" (
 
 echo ############## run grunt tasks ##############
 :: 5. Install and Run Grunt
+npm install
 npm install grunt-cli
 echo grunt deploy
 ./node_modules/.bin/grunt --no-color deploy
