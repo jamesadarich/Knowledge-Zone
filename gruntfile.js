@@ -21,7 +21,8 @@ module.exports = function(grunt) {
 				files: {
 					'css/global.css': 'sass/global.scss',
           'css/article.css': 'sass/article.scss',
-          'css/backbone.css': 'sass/backbone.scss'
+          'css/backbone.css': 'sass/backbone.scss',
+          'jasmine/css/jasmine.css': 'sass/jasmine.scss'
 				}
 			}
     },
@@ -50,6 +51,22 @@ module.exports = function(grunt) {
         },
         files: {
           'backbone/js/templates/pages.js': ['backbone/templates/pages/*.hbs'],
+        }
+      },
+      'jasmine-core': {
+        options: {
+          amd: true
+        },
+        files: {
+          'jasmine/js/templates/core.js': ['jasmine/templates/core/*.hbs'],
+        }
+      },
+      'backbone-pages': {
+        options: {
+          amd: true
+        },
+        files: {
+          'jasmine/js/templates/pages.js': ['jasmine/templates/pages/*.hbs'],
         }
       }
     }
