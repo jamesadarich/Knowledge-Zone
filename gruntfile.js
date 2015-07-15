@@ -22,7 +22,8 @@ module.exports = function(grunt) {
 					'css/global.css': 'sass/global.scss',
           'css/article.css': 'sass/article.scss',
           'css/backbone.css': 'sass/backbone.scss',
-          'jasmine/css/jasmine.css': 'sass/jasmine.scss'
+          'jasmine/css/jasmine.css': 'sass/jasmine.scss',
+          'typescript/css/typescript.css': 'sass/typescript.scss'
 				}
 			}
     },
@@ -61,16 +62,33 @@ module.exports = function(grunt) {
           'jasmine/js/templates/core.js': ['jasmine/templates/core/*.hbs'],
         }
       },
-      'backbone-pages': {
+      'jasmine-pages': {
         options: {
           amd: true
         },
         files: {
           'jasmine/js/templates/pages.js': ['jasmine/templates/pages/*.hbs'],
         }
+      },
+      'typescript-core': {
+        options: {
+          amd: true
+        },
+        files: {
+          'typescript/js/templates/core.js': ['typescript/templates/core/*.hbs'],
+        }
+      },
+      'typescript-pages': {
+        options: {
+          amd: true
+        },
+        files: {
+          'typescript/js/templates/pages.js': ['typescript/templates/pages/*.hbs'],
+        }
       }
     }
-  });
+  }
+);
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -83,6 +101,10 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', ['sass:dist',
                                 'copy:deploy',
                                 'handlebars:backbone-core',
-                                'handlebars:backbone-pages']);
+                                'handlebars:backbone-pages',
+                                'handlebars:jasmine-core',
+                                'handlebars:jasmine-pages',
+                                'handlebars:typescript-core',
+                                'handlebars:typescript-pages']);
 
 };
